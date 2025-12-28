@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        h1 {
+            text-align: center;
+            font-size: 3em;
+        }
+        .container {
+            background: white;
+            color: #333;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .code-box {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #5568d3;
+        }
+        .success {
+            color: #22c55e;
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>👋 Hi There!</h1>
+    
+    <div class="container">
+        <h2>Example Python Code</h2>
+        <p>Here's a simple Python function to calculate factorial:</p>
+        
+        <div class="code-box" id="code1">def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+# Example usage
+print(factorial(5))  # Output: 120</div>
+        <button onclick="copyCode('code1', this)">Copy Code</button>
+        <div class="success" id="success1">✓ Copied!</div>
+
+        <h2>Example JavaScript Code</h2>
+        <p>A function to reverse a string:</p>
+        
+        <div class="code-box" id="code2">function reverseString(str) {
+    return str.split('').reverse().join('');
+}
+
+// Example usage
+console.log(reverseString("Hello"));  // Output: "olleH"</div>
+        <button onclick="copyCode('code2', this)">Copy Code</button>
+        <div class="success" id="success2">✓ Copied!</div>
+
+        <h2>Example HTML Structure</h2>
+        <p>Basic HTML5 template:</p>
+        
+        <div class="code-box" id="code3">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;My Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello World!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</div>
+        <button onclick="copyCode('code3', this)">Copy Code</button>
+        <div class="success" id="success3">✓ Copied!</div>
+
+        <p style="text-align: center; margin-top: 30px;">
+            <a href="../" style="color: #667eea; text-decoration: none; font-weight: bold;">← Back to Home</a>
+        </p>
+    </div>
+
+    <script>
+        function copyCode(codeId, button) {
+            const codeBlock = document.getElementById(codeId).textContent;
+            navigator.clipboard.writeText(codeBlock).then(() => {
+                const successMsg = button.nextElementSibling;
+                successMsg.style.display = 'block';
+                button.textContent = 'Copied!';
+                
+                setTimeout(() => {
+                    successMsg.style.display = 'none';
+                    button.textContent = 'Copy Code';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
